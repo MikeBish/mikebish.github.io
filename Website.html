@@ -55,21 +55,19 @@
 
     <h2>Contact Form</h2>
     <div class="container">
-      <form action=”mike@mikebishop.ca”
+      <form method="post" name="contact_form"
+  action="contact-form-handler.php">
+      Your Name:
+      <input type="text" name="name">
 
-      method=”POST”
+      Email Address:
+      <input type="text" name="email">
 
-      enctype=”multipart/form-data”
+      Message:
+      <textarea name="message"></textarea>
 
-      name=”EmailTestForm”>
-
-      Name:<br>
-
-      <input type=”text” size=”24″ name=”VisitorName”><br><br>
-
-      Message:<br> <textarea name=”VisitorComment” rows=”4″ cols=”20″>
-
-      </textarea><br><br> <input type=”submit” value=”Submit”> </form>
+      <input type="submit" value="Submit">
+  </form>	
       <!--
 
         <div class="container form-top">
@@ -108,7 +106,7 @@
                 </div>
             </div>
         </div>
-        
+
       -->
     </div>
   </div>
