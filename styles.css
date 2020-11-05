@@ -1,0 +1,91 @@
+body{
+  width:auto;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  background: #f5f5f5;
+
+}
+
+
+
+
+
+p {
+  font-family: 'EB Garamond', serif;
+  font-size: 24px;
+  color: black;
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 30px;
+  color: black;
+  text-align: center;
+
+}
+
+.mainpic{
+  display: block;
+
+width: 100vw;
+
+}
+
+
+.text-area {
+  
+  background-color: #f5f5f5;
+  font-size: 24px;
+
+}
+
+
+.bg-YT, .bg-contact, .bg-cform {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+
+
+.bg-YT {
+  background-image: url(images/sofa.jpg);
+  min-height: 400px;
+}
+
+.bg-contact {
+  background-image: url(images/house.jpg);
+  min-height: 400px;
+}
+
+.bg-cform {
+  background-image: url(images/kitchen.jpg);
+  min-height: 400px;
+}
+
+.video{
+
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+form {
+      text-align: center;
+      background: #f5f5f5;
+    }
+
+.text-form {
+      min-height: 450px;
+
+      background-color: #f5f5f5;
+      font-size: 28px;
+
+    }
