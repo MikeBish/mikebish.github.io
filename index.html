@@ -328,6 +328,11 @@
     </div>
   </div>
 </section>
+<div id="message-sent-popup" class="popup">
+  <h2>Your message was sent!</h2>
+  <p>We will be in touch shortly.</p>
+  <button onclick="closePopup()">Close</button>
+</div>
             <!--end #section.block-->
 
         </div>
@@ -341,7 +346,37 @@
         <!--end footer-->
     </div>
     <!--end page-->
+<script>
+  const form = document.getElementById('contact-form');
+  const popup = document.getElementById('message-sent-popup');
 
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // Add form validation here (optional)
+
+    // Send form data using fetch API or a library like Axios
+    fetch('contact.php', {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Handle successful form submission response
+      console.log('Success:', data);
+      // Display a success message to the user (show popup)
+      popup.classList.add('show');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Display an error message to the user
+    });
+  });
+
+  function closePopup() {
+    popup.classList.remove('show');
+  }
+</script>
    <script>
   const form = document.getElementById('contact-form');
 
