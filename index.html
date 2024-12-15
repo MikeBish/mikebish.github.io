@@ -266,94 +266,68 @@
             
 
             <section class="block" id="contact">
-                <div class="container">
-                    <div class="block__wrapper">
-                        <div class="block__title">
-                            <h2>Contact</h2>
-                        </div>
-                        <!--end block-title-->
-                        <div class="row">
-                            <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12">
-                                
-                                <div class="person">
-                                    <div class="person__image">
-                                        <div class="img-into-bg">
-                                            <img src="assets/img/mikebishop.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="person__description">
-<h5>Mike Bishop</h5>
-
-                                        <h5>Sales Representative</h5>
-                                        <figure>
-                                            <label>Phone:</label>
-                                            <div>519-465-9865</div>
-                                        </figure>
-                                        <figure>
-                                            <label>E-mail:</label>
-                                            <div>
-                                                <a href="#">mike@mikebishop.ca</a>
-                                            </div>
-                                        </figure>
-                                                                           </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-7 col-lg-6 col-md-12 col-sm-12">
-                                <h4>Contact Form</h4>
-
-                                <form action="contact.php" id="form-contact" method="post" class="form clearfix">
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-6">
-                                            <div class="form-group">
-                                                <label for="form-contact-name">Your Name</label>
-                                                <input type="text" class="form-control" id="form-contact-name" name="name" placeholder="Your Name" required>
-                                            </div>
-                                            <!--end form-group -->
-                                        </div>
-                                        <!--end col-md-6 col-sm-6 -->
-                                        <div class="col-md-6 col-sm-6">
-                                            <div class="form-group">
-                                                <label for="form-contact-email">Your Email</label>
-                                                <input type="email" class="form-control" id="form-contact-email" name="email" placeholder="Your Email" required>
-                                            </div>
-                                            <!--end form-group -->
-                                        </div>
-                                        <!--end col-md-6 col-sm-6 -->
-                                    </div>
-                                    <!--end row -->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="form-contact-message">Your Message</label>
-                                                <textarea class="form-control" id="form-contact-message" rows="8" name="message" placeholder="Your Message" required></textarea>
-                                            </div>
-                                            <!--end form-group -->
-                                        </div>
-                                        <!--end col-md-12 -->
-                                    </div>
-                                    <!--end row -->
-                                    <div class="form-group clearfix">
-                                        <button type="submit" class="btn pull-right btn-primary btn-framed" id="form-contact-submit">Send a Message</button> 
-                                    </div>
-                                    <!--end form-group -->
-                                    <div class="form-contact-status"></div>
-                                </form>
-                                <!--end form-contact -->
-                            </div>
-                            <!--end col-xl-7-->
-                        </div>
-                        <!--end row-->
-                    </div>
-                    <!--end block__wrapper-->
+  <div class="container">
+    <div class="block__wrapper">
+      <div class="block__title">
+        <h2>Contact</h2>
+      </div>
+      <div class="row">
+        <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12">
+          <div class="person">
+            <div class="person__image">
+              <div class="img-into-bg">
+                <img src="assets/img/mikebishop.jpg" alt="">
+              </div>
+            </div>
+            <div class="person__description">
+              <h5>Mike Bishop</h5>
+              <h5>Sales Representative</h5>
+              <figure>
+                <label>Phone:</label>
+                <div>519-465-9865</div>
+              </figure>
+              <figure>
+                <label>E-mail:</label>
+                <div>
+                  <a href="#">mike@mikebishop.ca</a>
                 </div>
-                <!--end container-->
-                <div class="background-wrapper">
-                    <div class="background background--image background--repeat-repeat opacity-50">
-                        <img src="assets/img/pattern-dot.png" alt="">
-                    </div>
+              </figure>
+            </div>
+          </div>
+          </div>
+        <div class="col-xl-7 col-lg-6 col-md-12 col-sm-12">
+          <h4>Contact Form</h4>
+          <form id="contact-form" method="post" class="form clearfix">
+            <input type="hidden" name="action" value="send_message">
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label for="name">Your Name</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
                 </div>
-                <!--end background-->
-            </section>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label for="email">Your Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
             <!--end #section.block-->
 
         </div>
@@ -368,7 +342,31 @@
     </div>
     <!--end page-->
 
-   
+   <script>
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // Add form validation here (optional)
+
+    // Send form data using fetch API or a library like Axios
+    fetch('contact.php', {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Handle successful form submission response
+      console.log('Success:', data);
+      // Display a success message to the user
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Display an error message to the user
+    });
+  });
+</script>
 
 	<script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="assets/js/popper.min.js"></script>
