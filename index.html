@@ -1,70 +1,141 @@
 <!doctype html>
 <html lang="en">
 <head>
-  </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Mike Bishop - RE/MAX</title>
+    <style>
+        /* Initially hide the popup */
+        #message-sent-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+        }
+
+        #message-sent-popup.show {
+            display: block;
+        }
+    </style>
+</head>
 <body data-spy="scroll" data-target=".navbar">
-  <div class="page-wrapper" id="page-top">
-    <section class="block" id="contact">
-      <div class="container">
-        <div class="col-xl-7 col-lg-6 col-md-12 col-sm-12">
-          <h4>Contact Form</h4>
-          <form id="contact-form" method="POST" action="https://formspree.io/f/xanygwbp" class="form clearfix">
-            <div class="row">
-              <div class="col-md-6 col-sm-6">
-                <div class="form-group">
-                  <label for="name">Your Name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
+    <div class="page-wrapper" id="page-top">
+        <section class="block" id="contact">
+            <div class="container">
+                <div class="block__wrapper">
+                    <div class="block__title">
+                        <h2>Contact</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12">
+                            <div class="person">
+                                <div class="person__image">
+                                    <div class="img-into-bg">
+                                        <img src="assets/img/mikebishop.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="person__description">
+                                    <h5>Mike Bishop</h5>
+                                    <h5>Sales Representative</h5>
+                                    <figure>
+                                        <label>Phone:</label>
+                                        <div>519-465-9865</div>
+                                    </figure>
+                                    <figure>
+                                        <label>E-mail:</label>
+                                        <div>
+                                            <a href="#">mike@mikebishop.ca</a>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-6 col-md-12 col-sm-12">
+                            <h4>Contact Form</h4>
+                            <form id="contact-form" method="POST" action="https://formspree.io/f/xanygwbp" class="form clearfix">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="name">Your Name</label>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="email">Your Email</label>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="message">Message</label>
+                                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-md-6 col-sm-6">
-                <div class="form-group">
-                  <label for="email">Your Email</label>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message"></textarea>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Send Message</button>
-              </div>
             </div>
-          </form>
+        </section>
+
+        <!-- Popup Message -->
+        <div id="message-sent-popup" class="popup">
+            <p>Thanks, I will get back to you shortly.</p>
+            <button id="close-button" onclick="closePopup()">Close</button>
         </div>
-      </div>
-    </section>
+
+    </div>
 
     <script>
-      const form = document.getElementById('contact-form');
-      const popup = document.getElementById('message-sent-popup');
+        const form = document.getElementById('contact-form');
+        const popup = document.getElementById('message-sent-popup');
 
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-        try {
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-          });
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                });
 
-          // No error checking here - submitting regardless of response status
+                // Check if the response is okay
+                if (!response.ok) {
+                    const errorMessage = await response.text(); 
+                    throw new Error(`HTTP error! status: ${response.status} - ${errorMessage}`);
+                }
 
-          console.log("Form submitted successfully.");
-          popup.classList.add('show');
-          form.reset();
+                console.log("Form submitted successfully.");
+                popup.classList.add('show');
+                form.reset();
 
-        } catch (error) {
-          console.error('Error in form submission:', error);
-          // No user alert here
+            } catch (error) {
+                console.error('Error in form submission:', error);
+                alert(`There was an error submitting the form: ${error.message}`);
+            }
+        });
+
+        function closePopup() {
+            popup.classList.remove('show');
         }
-      });
-
-      function closePopup() {
-        popup.classList.remove('show');
-      }
     </script>
 </body>
 </html>
+
