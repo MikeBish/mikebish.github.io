@@ -96,7 +96,7 @@
         </section>
 
         <div id="message-sent-popup" class="popup">
-            <p>Thanks, I will get back to you shortly.</p>
+            <p>TThanks, I will get back to you shortly.</p>
             <button id="close-button" onclick="closePopup()">Close</button> 
         </div>
 
@@ -116,7 +116,8 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    const errorMessage = await response.text(); 
+                    throw new Error(`HTTP error! status: ${response.status} - ${errorMessage}`);
                 }
 
                 console.log("Form submitted successfully.");
@@ -125,7 +126,7 @@
 
             } catch (error) {
                 console.error('Error in form submission:', error);
-                alert('There was an error submitting the form. Please try again later.'); 
+                alert(`There was an error submitting the form: ${error.message}`); 
             }
         });
 
@@ -135,5 +136,6 @@
     </script>
 </body>
 </html>
+
 
 
