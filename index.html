@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
                                 <div class="person__description">
-                                    <h5>MMike Bishop</h5>
+                                    <h5>Mike Bishop</h5>
                                     <h5>Sales Representative</h5>
                                     <figure>
                                         <label>Phone:</label>
@@ -116,26 +116,26 @@
                     body: new FormData(form),
                 });
 
-                // Check if the response is okay
+                // Check if the response is OK
                 if (!response.ok) {
                     const errorMessage = await response.text(); 
                     throw new Error(`HTTP error! status: ${response.status} - ${errorMessage}`);
                 }
 
                 console.log("Form submitted successfully.");
+                
+                // Show the popup
                 popup.classList.add('show');
+                
+                // Reset the form after submission
                 form.reset();
 
-            } catch (error) {
-                console.error('Error in form submission:', error);
-                
-            }
-        });
+            }         });
 
+        // Close the popup
         function closePopup() {
             popup.classList.remove('show');
         }
     </script>
 </body>
 </html>
-
