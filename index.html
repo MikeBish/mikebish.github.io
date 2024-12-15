@@ -66,32 +66,31 @@
                         </div>
                         <div class="col-xl-7 col-lg-6 col-md-12 col-sm-12">
                             <h4>Contact Form</h4>
-                            <form id="contact-form" method="post" class="form clearfix">
-                                <input type="hidden" name="action" value="send_message">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="name">Your Name</label>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="email">Your Email</label>
-                                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="message">Message</label>
-                                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
+    <form id="contact-form" method="POST" action="https://formspree.io/f/xanygwbp" class="form clearfix">
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+    </div>
+</form>
                         </div>
                     </div>
                 </div>
