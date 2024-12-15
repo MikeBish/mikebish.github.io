@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Email setup
-    $to = "your_email@example.com"; 
+    $to = "mike@mikebishop.ca"; 
     $subject = "Message from Website";
     $headers = "From: $name <$email>\r\n";
 
