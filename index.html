@@ -266,9 +266,25 @@
 
                       
 
-   <div style="text-align: center;">
-    <iframe width="700" height="394" src="https://www.youtube.com/embed/videoseries?si=wJ3NpSyYzzmgfbjz&amp;list=PLE5N622WpI7ntyOROudRaDFbpRCQYcCKB" frameborder="0" allowfullscreen></iframe> 
+
+<div style="text-align: center;">
+  <iframe src="https://www.youtube.com/embed/videoseries?si=wJ3NpSyYzzmgfbjz&amp;list=PLE5N622WpI7ntyOROudRaDFbpRCQYcCKB" frameborder="0" allowfullscreen></iframe>
 </div>
+
+<style>
+  iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;  /* Maintains 16:9 aspect ratio */
+  }
+
+  @media screen and (min-width: 768px) {
+    iframe {
+      max-width: 700px;  /* Set max width on larger screens */
+      width: 100%;
+    }
+  }
+</style>
 
 
                             <!--end col-md-4-->
