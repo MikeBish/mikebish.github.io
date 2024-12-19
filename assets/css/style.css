@@ -1684,4 +1684,9 @@ textarea.form-control {
     height: 100%;  /* Makes the iframe fill the container */
 }
 
+@media (max-width: 600px) {
+    .responsive-iframe-container {
+        padding-bottom: 75%; /* Adjust aspect ratio for smaller screens */
+    }
+}
 }
